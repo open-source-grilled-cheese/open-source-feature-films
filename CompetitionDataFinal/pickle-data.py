@@ -11,7 +11,7 @@ with open(file1) as impressions, open(file2) as ratings:
 
     both = impressionLines + ratingLines
 
-    funcIn = [ np.array(b[0:1]) for b in both]
+    funcIn = [ np.array([[b[0], b[1]]]) for b in both]
     funcOut = [ b[2] for b in both]
 
     output = np.array([funcIn, funcOut])
