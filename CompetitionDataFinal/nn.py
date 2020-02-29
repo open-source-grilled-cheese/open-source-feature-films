@@ -3,6 +3,17 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 import pickle
 
+def custom(y_actual, y_predicted):
+	loss = tf.keras.losses.sparse_categorical_crossentropy(y_actual, y_predicted)
+	if (y_actual == 1 and y_predicted == 2) or (y_actual == 2 and y_predicted == 1):
+		loss = loss /10
+		print(cool)
+
+	print(y_actual, y_predicted)
+	return loss
+	
+
+
 #data = np.load('impressions-input.npy', allow_pickle=True)
 #key = np.load('impressions-output.npy', allow_pickle=True)
 
@@ -29,10 +40,10 @@ model = tf.keras.models.Sequential([
 	tf.keras.layers.Dense(3, activation='softmax')
 	])
 
-model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metrics=['sparse_categorical_accuracy'])
+model.compile(optimizer='adam', loss = custom, metrics=['sparse_categorical_accuracy'])
 
 hist = model.fit(x, y, batch_size = 100, epochs = 5, validation_data = (xt, yt))
 
 predictions = model.predict_classes(xt)
-np.save('nnpredictions.npy', predictions)
+np.save('nnpredictions2.npy', predictions)
 
