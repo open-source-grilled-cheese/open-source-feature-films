@@ -1,5 +1,5 @@
 12 Years a Slave	1
-13 Reason Why	2
+13 Reasons Why	2
 A Quiet Place	3
 A Series of Unfortunate Events	4
 A Star is Born	5
@@ -25,7 +25,7 @@ Bohemian Rhapsody	24
 Boyhood	25
 Breakthrough	26
 Captain Marvel	27
-Cars Films	28
+Cars	28
 Cinderella	29
 Coco	30
 Crazy Rich Asians	31
@@ -99,7 +99,7 @@ Moonlight	98
 Mulan	99
 Murder Mystery	100
 Murder on the Orient Express	101
-My Big Fat Greek Weeding	102
+My Big Fat Greek Wedding	102
 Nailed It!	103
 Neighbors	104
 New Girl	105
@@ -114,7 +114,7 @@ Pitch Perfect	113
 Pixels	114
 Pokemon Detective Pikachu	115
 Pretty Little Liars	116
-Prirates of the Carribean	117
+Pirates of the Caribbean	117
 Rampage	118
 Ready Player One	119
 Riverdale	120
@@ -135,13 +135,13 @@ Spotlight	134
 Star	135
 Star Trek	136
 Star Wars Episode 8	137
-Star Wars Series	138
+Star Wars	138
 Stranger Things	139
 Suicide Squad	140
 Tangled	141
 Teen Wolf	142
 The 100	143
-The Avengers Films	144
+The Avengers	144
 The Babadook	145
 The Big Bang Theory	146
 The Big Sick	147
