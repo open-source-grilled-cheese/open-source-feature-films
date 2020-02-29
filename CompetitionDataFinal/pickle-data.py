@@ -13,7 +13,7 @@ def main():
         impressionLines = [[int(a) for a in x.strip().split(',')] for x in impressions.readlines()[1:]]
         ratingLines = [[int(a) for a in x.strip().split(',')] for x in ratings.readlines()[1:]]
 
-        both = impressionLines + ratingLines
+        both = ratingLines + impressionLines
         # both = impressionLines
 
         allInputData = []
@@ -44,7 +44,7 @@ def main():
         print(funcIn.dtype)
         print(type(funcIn))
 
-        np.save('impressions-and-ratings-input.npy', funcIn)
+        np.save('ratings-and-impressions-input.npy', funcIn)
         np.save('impressions-and-ratings-output.npy', funcOut)
 
         print(both[0:4])
