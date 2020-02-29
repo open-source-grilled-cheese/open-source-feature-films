@@ -25,6 +25,13 @@ tvShows = ["13 Reasons Why",
 "The Big Bang Theory",
 "The Great British Baking Show"]
 
+def get_movie_lookup():
+    with open(movieFile) as file:
+        lines = [l.strip().split('\t') for l in file.readlines()]
+        idlookup = {l[0]:l[1] for l in lines}
+        return idlookup
+
+
 def load_web_data(url):
     # Get movie data from the web
     response = requests.get(url)
@@ -47,7 +54,8 @@ def load_movie_titles(movie_file):
 
 def save_all_movie_data():
     titles = load_movie_titles(movieFile)
-    allMovieData = []
+    idLookup = get_movie_lookup()
+    allMovieData = {}
     for title in titles:
         # initial request
         encodedTitle = title.replace(' ', '%20')
@@ -61,6 +69,7 @@ def save_all_movie_data():
             print(title, 'got no results')
             continue
         movieData = get_movie_data(webData)
+        allMovieData[idLookup[title]] = movieData
 
         # get additional data
         # movieID = movieData['id']
@@ -70,7 +79,6 @@ def save_all_movie_data():
         # movieData['revenue'] = movieDetails['revenue']
 
         # add to additional request
-        allMovieData.append(movieData)
 
     # save to file
     allMovieJSON = json.dumps(allMovieData)
