@@ -7,7 +7,7 @@ def custom(y_actual, y_predicted):
 	loss = tf.keras.losses.sparse_categorical_crossentropy(y_actual, y_predicted)
 	if (y_actual == 1 and y_predicted == 2) or (y_actual == 2 and y_predicted == 1):
 		loss = loss /10
-		print(cool)
+		print('Hello World')
 
 	print(y_actual, y_predicted)
 	return loss
