@@ -13,7 +13,9 @@ def main():
         impressionLines = [[int(a) for a in x.strip().split(',')] for x in impressions.readlines()[1:]]
         ratingLines = [[int(a) for a in x.strip().split(',')] for x in ratings.readlines()[1:]]
 
-        both = impressionLines + ratingLines
+        # both = impressionLines + ratingLines
+        both = impressionLines
+
         allInputData = []
         unGenred = set()
         for rating in both:
