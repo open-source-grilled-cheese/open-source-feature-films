@@ -56,7 +56,7 @@ def main():
 
         np.save('test.npy', allTestData)
         np.save('impressions-input.npy', funcIn)
-        np.save('impressions-and-ratings-output.npy', funcOut)
+        np.save('impressions-output.npy', funcOut)
 
         # print(allTestData)
 main()
