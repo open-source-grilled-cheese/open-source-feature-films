@@ -57,7 +57,7 @@ def main():
 
         np.save('impressions-with-ratings-input.npy', allIn)
         np.save('impressions-with-ratings-validation-input.npy', allIn[0:6790])
-        np.save('impressions-with-ratings-training-input.npy', allOut[6790:])
+        np.save('impressions-with-ratings-training-input.npy', allIn[6790:])
 
         np.save('impressions-with-ratings-output.npy', allOut)
         np.save('impressions-with-ratings-training-output.npy', allOut[6790:])
