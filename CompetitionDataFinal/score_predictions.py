@@ -4,7 +4,7 @@ import numpy as np
 
 def main():
     dataFile = 'impressions-validation-output.npy'
-    predictFile = 'nnpredictions.npy'
+    predictFile = 'nnpredictions2.npy'
 
     dataAnswers = np.load(dataFile, allow_pickle=True)
     dataPredicts = np.load(predictFile, allow_pickle=True)

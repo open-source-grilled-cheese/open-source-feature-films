@@ -2,15 +2,13 @@ import tensorflow as tf
 import numpy as np
 from sklearn.model_selection import train_test_split
 import pickle
+import sys
 
 def custom(y_actual, y_predicted):
 	l = tf.keras.losses.sparse_categorical_crossentropy(y_actual, y_predicted)
-	if (y_actual == 1 and y_predicted == 2) or (y_actual == 2 and y_predicted == 1):
-		l = l /10
-		print('Hello World')
-
-	print_op = tf.print(y_actual)
-	some_tensor = tf.tuple([y_actual], control_inputs=[print_op])
+	if (y_actual == 1 and y_predicted[0] == 2) or (y_actual[0] == 2 and y_predicted[0] == 1):
+		l = l /1000000
+	tf.keras.backend.print_tensor(y_actual)
 	return l
 	
 
