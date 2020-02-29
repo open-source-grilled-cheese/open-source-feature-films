@@ -37,10 +37,7 @@ def main():
             thisMovieData = moviedata[str(movieID)]
             inputData.append(thisMovieData['popularity'])
             inputData.append(thisMovieData['vote_average'])
-            if len(thisMovieData['genre_ids']) == 0:
-                unGenred.add(thisMovieData['title'])
-            else:
-                inputData.append(thisMovieData['genre_ids'][0])
+            inputData.append(thisMovieData['genre_ids'][0])
             allTestData.append(inputData)
 
         # normalize
