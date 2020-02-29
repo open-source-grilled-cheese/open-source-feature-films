@@ -56,11 +56,11 @@ def main():
 
         np.save('test.npy', allTestData)
         np.save('impressions-input.npy', funcIn)
-        np.save('impressions-training-input.npy', funcIn[0:6790])
-        np.save('impressions-validation-input.npy', funcIn[6790:])
+        np.save('impressions-training-input.npy', funcIn[6790:])
+        np.save('impressions-validation-input.npy', funcIn[0:6790])
         np.save('impressions-output.npy', funcOut)
-        np.save('impressions-training-output.npy', funcOut[0:6790])
-        np.save('impressions-validation-output.npy', funcOut[6790:])
+        np.save('impressions-training-output.npy', funcOut[6790:])
+        np.save('impressions-validation-output.npy', funcOut[0:6790])
 
         # print(allTestData)
 main()

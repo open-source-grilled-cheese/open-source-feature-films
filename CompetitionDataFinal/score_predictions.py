@@ -3,8 +3,8 @@
 import numpy as np
 
 def main():
-    dataFile = 'impressions-and-ratings-output.npy'
-    predictFile = 'impressions-and-ratings-predict.npy'
+    dataFile = 'impressions-validation-output.npy'
+    predictFile = 'nnpredictions.npy'
 
     dataAnswers = np.load(dataFile, allow_pickle=True)
     dataPredicts = np.load(predictFile, allow_pickle=True)
