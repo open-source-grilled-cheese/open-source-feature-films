@@ -10,9 +10,9 @@ file4 = 'test.csv'
 
 def main(): 
     with open(file1) as impressions, open(file2) as ratings, open(file3) as moviedata, open(file4) as realTestData:
-        moviedata = json.load(moviedata)
         impressionLines = [[int(a) for a in x.strip().split(',')] for x in impressions.readlines()[1:]]
         ratingLines = [[int(a) for a in x.strip().split(',')] for x in ratings.readlines()[1:]]
+        moviedata = json.load(moviedata)
         testLines = [[int(a) for a in x.strip().split(',')] for x in realTestData.readlines()[1:]]
 
         # both = ratingLines + impressionLines
@@ -31,14 +31,14 @@ def main():
 
         allTestData = []
         for rating in testLines:
-            inputData = []
-            inputData = [rating[0], rating[1]]
+            testData = []
+            testData = [rating[0], rating[1]]
             movieID = rating[1]
             thisMovieData = moviedata[str(movieID)]
-            inputData.append(thisMovieData['popularity'])
-            inputData.append(thisMovieData['vote_average'])
-            inputData.append(thisMovieData['genre_ids'][0])
-            allTestData.append(inputData)
+            testData.append(thisMovieData['popularity'])
+            testData.append(thisMovieData['vote_average'])
+            testData.append(thisMovieData['genre_ids'][0])
+            allTestData.append(testData)
 
         # normalize
         # maxes = [max([a[x] for a in allInputData]) for x in range(len(allInputData[0]))]
