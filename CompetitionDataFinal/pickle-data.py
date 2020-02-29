@@ -20,3 +20,4 @@ with open(file1) as impressions, open(file2) as ratings:
     print(both[0:4])
     print(funcIn[0:4])
     print(funcOut[0:4])
+    print(type(both[0][0][0]))
