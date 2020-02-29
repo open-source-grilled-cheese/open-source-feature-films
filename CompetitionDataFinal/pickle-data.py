@@ -37,7 +37,7 @@ def main():
         #     for attrIndex in range(len(rating)):
         #         rating[attrIndex] = rating[attrIndex]/maxes[attrIndex]
 
-        funcIn = np.array(allInputData).astype('str')
+        funcIn = np.array(allInputData).astype(np.float32)
         funcOut = np.array([ b[2] for b in both]).astype(np.int64)
 
         print(funcIn)
