@@ -11,10 +11,11 @@ with open(file1) as impressions, open(file2) as ratings:
 
     both = impressionLines + ratingLines
 
-    funcIn = [ [b[0], b[1]] for b in both]
-    funcOut = [ b[2] for b in both]
+    funcIn = [ np.array([b[0], b[1]]).astype(np.float32) for b in both]
+    funcOut = np.array([ b[2] for b in both]).astype(np.float32)
 
     output = np.array([funcIn, funcOut])
+    print(output[1].dtype)
     np.save('impressions-and-ratings.npy', output)
 
     print(both[0:4])
