@@ -16,9 +16,9 @@ def custom(y_actual, y_predicted):
 #data = np.load('impressions-input.npy', allow_pickle=True)
 #key = np.load('impressions-output.npy', allow_pickle=True)
 
-interimx = np.load('impressions-training-input.npy', allow_pickle=True)
-y = np.load('impressions-training-output.npy', allow_pickle=True)
-interimxt = np.load('impressions-validation-input.npy', allow_pickle=True)
+interimx = np.load('impressions-input.npy', allow_pickle=True)
+y = np.load('impressions-output.npy', allow_pickle=True)
+interimxt = np.load('test.npy', allow_pickle=True)
 yt = np.load('impressions-validation-output.npy', allow_pickle=True)
 
 x = [np.array([a[i] for a in interimx]) for i in range(len(interimx[0]))]
@@ -71,7 +71,7 @@ model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metric
 
 hist = model.fit({'input0': x[0], 'input12': x[1], 'input1': x[2], 'input2': x[3], 'input3': x[4]}, y, epochs = 5)
 
-model.evaluate({'input0': xt[0], 'input12': xt[1], 'input1': xt[2], 'input2': xt[3], 'input3': xt[4]}, yt)
+# model.evaluate({'input0': xt[0], 'input12': xt[1], 'input1': xt[2], 'input2': xt[3], 'input3': xt[4]}, yt)
 
 predictions = model.predict({'input0': xt[0], 'input12': xt[1], 'input1': xt[2], 'input2': xt[3], 'input3': xt[4]})
 
