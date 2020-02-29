@@ -23,20 +23,21 @@ def main():
             inputData = [rating[0], rating[1]]
             movieID = rating[1]
             thisMovieData = moviedata[str(movieID)]
-            inputData.append(float(thisMovieData['popularity']))
-            inputData.append(float(thisMovieData['vote_average']))
+            inputData.append(thisMovieData['popularity'])
+            inputData.append(thisMovieData['vote_average'])
             if len(thisMovieData['genre_ids']) == 0:
                 unGenred.add(thisMovieData['title'])
             else:
-                inputData.append(float(thisMovieData['genre_ids'][0]))
+                inputData.append(thisMovieData['genre_ids'][0])
             allInputData.append(inputData)
 
-        maxes = [max([a[x] for a in allInputData]) for x in range(len(allInputData[0]))]
-        for rating in allInputData:
-            for attrIndex in range(len(rating)):
-                rating[attrIndex] = rating[attrIndex]/maxes[attrIndex]
+        # normalize
+        # maxes = [max([a[x] for a in allInputData]) for x in range(len(allInputData[0]))]
+        # for rating in allInputData:
+        #     for attrIndex in range(len(rating)):
+        #         rating[attrIndex] = rating[attrIndex]/maxes[attrIndex]
 
-        funcIn = np.array(allInputData).astype(np.float32)
+        funcIn = np.array(allInputData).astype('str')
         funcOut = np.array([ b[2] for b in both]).astype(np.int64)
 
         print(funcIn)
