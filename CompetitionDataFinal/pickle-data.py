@@ -19,7 +19,6 @@ def main():
         # both = impressionLines
 
         allInputData = []
-        unGenred = set()
         for rating in both:
             inputData = []
             inputData = [rating[0], rating[1]]
@@ -27,10 +26,7 @@ def main():
             thisMovieData = moviedata[str(movieID)]
             inputData.append(thisMovieData['popularity'])
             inputData.append(thisMovieData['vote_average'])
-            if len(thisMovieData['genre_ids']) == 0:
-                unGenred.add(thisMovieData['title'])
-            else:
-                inputData.append(thisMovieData['genre_ids'][0])
+            inputData.append(thisMovieData['genre_ids'][0])
             allInputData.append(inputData)
 
         allTestData = []
@@ -62,8 +58,8 @@ def main():
         print(type(funcIn))
 
         np.save('test.npy', allTestData)
-        np.save('ratings-and-impressions-input.npy', funcIn)
+        np.save('impressions-and-ratings-input.npy', funcIn)
         np.save('impressions-and-ratings-output.npy', funcOut)
 
-        print(allTestData)
+        # print(allTestData)
 main()

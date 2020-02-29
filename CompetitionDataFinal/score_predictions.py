@@ -14,6 +14,7 @@ def main():
         return
     
     score = 0
+    weakCorrect = 0
     correct = 0
     queries = len(dataAnswers)
     for prediction,answer in zip(dataPredicts,dataAnswers):
@@ -21,13 +22,17 @@ def main():
         answer = int(answer)
         if answer == prediction:
             score += 2
-            correct += 2
+            correct += 1
+            weakCorrect += 1
         if (answer == 1 and prediction == 2) or (answer == 2 and prediction == 1):
             score += 1
+            weakCorrect += 1
     
     print('SCORE')
     print(f'{score} POINTS')
     print(f'{correct} ANSWERS COMPLETELY PREDICTED')
     print(f'{correct/queries*100}% PREDICTION RATE')
+    print(f'{weakCorrect} SCORING ANSWERS')
+    print(f'{weakCorrect/queries*100}% SCORE RATE')
 
 main()
