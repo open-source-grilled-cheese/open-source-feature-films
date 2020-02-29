@@ -4,13 +4,14 @@ from sklearn.model_selection import train_test_split
 import pickle
 
 def custom(y_actual, y_predicted):
-	loss = tf.keras.losses.sparse_categorical_crossentropy(y_actual, y_predicted)
+	l = tf.keras.losses.sparse_categorical_crossentropy(y_actual, y_predicted)
 	if (y_actual == 1 and y_predicted == 2) or (y_actual == 2 and y_predicted == 1):
-		loss = loss /10
+		l = l /10
 		print('Hello World')
 
-	print(y_actual, y_predicted)
-	return loss
+	print_op = tf.print(y_actual)
+	some_tensor = tf.tuple([y_actual], control_inputs=[print_op])
+	return l
 	
 
 
@@ -44,6 +45,13 @@ model.compile(optimizer='adam', loss = custom, metrics=['sparse_categorical_accu
 
 hist = model.fit(x, y, batch_size = 100, epochs = 5, validation_data = (xt, yt))
 
-predictions = model.predict_classes(xt)
+predictions = model.predict_classes(xt, predictions)
+
+predictions2 = np.array([predictions])
+final = np.concatenate((xt[:][:,0:2].astype(int), predictions2.T), axis = 1)
+np.savetxt("Submission.csv", final, fmt='%i', delimiter=',')
+
 np.save('nnpredictions2.npy', predictions)
+
+
 
