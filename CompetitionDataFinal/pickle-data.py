@@ -56,6 +56,8 @@ def main():
 
         np.save('test.npy', allTestData)
         np.save('impressions-input.npy', funcIn)
+        np.save('impressions-training.npy', funcIn)
+        np.save('impressions-validation.npy', funcIn)
         np.save('impressions-output.npy', funcOut)
 
         # print(allTestData)
