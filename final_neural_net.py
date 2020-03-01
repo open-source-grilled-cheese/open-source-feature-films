@@ -16,10 +16,10 @@ def custom(y_actual, y_predicted):
 #data = np.load('impressions-input.npy', allow_pickle=True)
 #key = np.load('impressions-output.npy', allow_pickle=True)
 
-interimx = np.load('impressions-input.npy', allow_pickle=True)
-y = np.load('impressions-output.npy', allow_pickle=True)
-interimxt = np.load('test.npy', allow_pickle=True)
-yt = np.load('impressions-validation-output.npy', allow_pickle=True)
+interimx = np.load('np_data/impressions-input.npy', allow_pickle=True)
+y = np.load('np_data/impressions-output.npy', allow_pickle=True)
+interimxt = np.load('np_data/test.npy', allow_pickle=True)
+yt = np.load('np_data/impressions-validation-output.npy', allow_pickle=True)
 
 
 #interimx = np.load('impressions-training-input.npy', allow_pickle=True)
@@ -85,4 +85,4 @@ hist = model.fit({'input0': x[0], 'input12': x[1], 'input1': x[2], 'input2': x[3
 predictions = model.predict({'input0': xt[0], 'input12': xt[1], 'input1': xt[2], 'input2': xt[3], 'input3': xt[4]})
 
 predictlists = [np.where(max(j) == j)[0][0] for j in predictions]
-np.save('nnpredictions3.npy', predictlists)
+np.save('np_data/nnpredictions3.npy', predictlists)

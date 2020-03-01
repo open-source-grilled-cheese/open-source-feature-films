@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
+import os
 import numpy as np
 
 def main():
-    dataFile = 'impressions-validation-output.npy'
-    predictFile = 'nnpredictions3.npy'
+    dataFile = os.path.join('..', 'np_data' 'impressions-validation-output.npy')
+    predictFile = os.path.join('..', 'np_data', 'nnpredictions3.npy')
 
     dataAnswers = np.load(dataFile, allow_pickle=True)
     dataPredicts = np.load(predictFile, allow_pickle=True)

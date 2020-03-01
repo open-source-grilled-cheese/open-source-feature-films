@@ -16,10 +16,10 @@ def custom(y_actual, y_predicted):
 #data = np.load('impressions-input.npy', allow_pickle=True)
 #key = np.load('impressions-output.npy', allow_pickle=True)
 
-x = np.load('impressions-training-input.npy', allow_pickle=True)
-y = np.load('impressions-training-output.npy', allow_pickle=True)
-xt = np.load('impressions-validation-input.npy', allow_pickle=True)
-yt = np.load('impressions-validation-output.npy', allow_pickle=True)
+x = np.load('np_data/impressions-training-input.npy', allow_pickle=True)
+y = np.load('np_data/impressions-training-output.npy', allow_pickle=True)
+xt = np.load('np_data/impressions-validation-input.npy', allow_pickle=True)
+yt = np.load('np_data/impressions-validation-output.npy', allow_pickle=True)
 
 x = tf.keras.utils.to_categorical(x)
 xt = tf.keras.utils.to_categorical(xt)
@@ -43,13 +43,6 @@ model.compile(optimizer='adam', loss = custom, metrics=['sparse_categorical_accu
 
 hist = model.fit(x, y, batch_size = 100, epochs = 5, validation_data = (xt, yt))
 
-predictions = model.predict_classes(xt, predictions)
-
-predictions2 = np.array([predictions])
-final = np.concatenate((xt[:][:,0:2].astype(int), predictions2.T), axis = 1)
-np.savetxt("Submission.csv", final, fmt='%i', delimiter=',')
-
-np.save('nnpredictions2.npy', predictions)
-
-
+predictions = model.predict_classes(xt)
+np.save('np_data/nnpredictions2.npy', predictions)
 

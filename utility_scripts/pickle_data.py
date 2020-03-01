@@ -2,11 +2,12 @@
 
 import json
 import numpy as np
+import os
 
-file1 = 'impressions-train.csv'
-file2 = 'ratings-final.csv'
-file3 = 'movie-data.json'
-file4 = 'test.csv'
+file1 = os.path.join('..', 'competition_data', 'impressions-train.csv')
+file2 = os.path.join('..', 'competition_data', 'ratings-final.csv')
+file3 = os.path.join('..', 'movie_data', 'movie-data.json')
+file4 = os.path.join('..', 'competition_data', 'test.csv')
 
 def proc_inputs(file_data, movie_data):
     allData = []
@@ -47,22 +48,20 @@ def main():
 
         np.save('test.npy', allTestData)
 
-        np.save('impressions-input.npy', impressionIn)
-        np.save('impressions-training-input.npy', impressionIn[6790:])
-        np.save('impressions-validation-input.npy', impressionIn[0:6790])
-        np.save('impressions-output.npy', impressionOut)
-        np.save('impressions-training-output.npy', impressionOut[6790:])
-        np.save('impressions-validation-output.npy', impressionOut[0:6790])
+        np.save(os.path.join('..', 'np_data', 'impressions-input.npy'), impressionIn)
+        np.save(os.path.join('..', 'np_data', 'impressions-training-input.npy'), impressionIn[6790:])
+        np.save(os.path.join('..', 'np_data', 'impressions-validation-input.npy'), impressionIn[0:6790])
+        np.save(os.path.join('..', 'np_data', 'impressions-output.npy'), impressionOut)
+        np.save(os.path.join('..', 'np_data', 'impressions-training-output.npy'), impressionOut[6790:])
+        np.save(os.path.join('..', 'np_data', 'impressions-validation-output.npy'), impressionOut[0:6790])
 
 
-        np.save('impressions-with-ratings-input.npy', allIn)
-        np.save('impressions-with-ratings-validation-input.npy', allIn[0:6790])
-        np.save('impressions-with-ratings-training-input.npy', allIn[6790:])
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-input.npy'), allIn)
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-validation-input.npy'), allIn[0:6790])
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-training-input.npy'), allIn[6790:])
 
-        np.save('impressions-with-ratings-output.npy', allOut)
-        np.save('impressions-with-ratings-training-output.npy', allOut[6790:])
-        np.save('impressions-with-ratings-validation-output.npy', allOut[0:6790])
-        # print(allTestData)
-
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-output.npy'), allOut)
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-training-output.npy'), allOut[6790:])
+        np.save(os.path.join('..', 'np_data', 'impressions-with-ratings-validation-output.npy'), allOut[0:6790])
 
 main()
